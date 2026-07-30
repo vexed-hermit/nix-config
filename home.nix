@@ -8,6 +8,8 @@
 
   home.packages = with pkgs; [
     btop
+    bat
+    wl-clipboard
     curl
     fastfetch
     tree
