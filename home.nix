@@ -8,8 +8,9 @@
 
   home.packages = with pkgs; [
     btop
-    fastfetch
     curl
+    fastfetch
+    tree
   ];
 
   home.file = {
