@@ -18,22 +18,20 @@
     home-manager,
     helium-browser,
     ...
-  }@inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+  }@inputs:
 
-      specialArgs = { inherit inputs; };
+  let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
 
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
-          home-manager.users.doctor = import ./home.nix;
-        }
-      ];
+    mkHost = import ./lib/mkHost.nix {
+      inherit nixpkgs home-manager inputs;
+    };
+  in
+
+  {
+    nixosConfigurations = {
+      nixos = mkHost { hostname = "nixos"; };
     };
   };
 }
