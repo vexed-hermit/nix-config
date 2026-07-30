@@ -21,10 +21,9 @@
     settings = {
       init.defaultBranch = "main";
       pull.rebase = true;
+      user.name = "kingro27";
+      user.email = "kumarvasu2006@gmail.com";
     };
-
-    userName = "kingro27";
-    userEmail = "kumarvasu2006@gmail.com";
   };
 
   home.sessionVariables = {
