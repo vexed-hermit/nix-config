@@ -28,6 +28,25 @@
     };
   };
 
+  programs.ripgrep-all.enable = true;
+
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
+  programs.mcfly = {
+    enable = true;
+    enableBashIntegration = true;
+    fzf.enable = true;
+    keyScheme = "vim";
+  };
+
   services.playerctld.enable = true;
 
   home.sessionVariables = {
