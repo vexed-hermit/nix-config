@@ -8,7 +8,6 @@
 
   home.packages = with pkgs; [
     btop
-    bat
     wl-clipboard
     curl
     fastfetch
@@ -46,6 +45,8 @@
     fzf.enable = true;
     keyScheme = "vim";
   };
+
+  programs.bat.enable = true;
 
   services.playerctld.enable = true;
 
