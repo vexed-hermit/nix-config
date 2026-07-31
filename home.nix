@@ -28,6 +28,8 @@
     };
   };
 
+  services.playerctld.enable = true;
+
   home.sessionVariables = {
     EDITOR = "nano";
   };
