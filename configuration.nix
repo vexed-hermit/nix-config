@@ -48,6 +48,8 @@ in
     pulse.enable = true;
   };
 
+  services.flatpak.enable = true;
+
   users.users."doctor" = {
     isNormalUser = true;
     description = "Doctor";

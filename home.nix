@@ -1,6 +1,10 @@
 { config, pkgs, inputs, ... }:
 
 {
+  imports = [
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
+  ];
+
   home.username = "doctor";
   home.homeDirectory = "/home/doctor";
 
@@ -49,6 +53,13 @@
   programs.bat.enable = true;
 
   services.playerctld.enable = true;
+
+  services.flatpak = {
+    packages = [
+      "com.stremio.Stremio"
+    ];
+    update.onActivation = true;
+  };
 
   home.sessionVariables = {
     EDITOR = "nano";
