@@ -18,7 +18,23 @@ in
 
   #networking.hostName = "nixos";
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.powersave = false;
+    wifi.macAddress = "stable";
+    dns = "none";
+  };
+
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+  ];
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ ];
+    allowedUDPPorts = [ ];
+  };
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -49,6 +65,8 @@ in
   };
 
   services.flatpak.enable = true;
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   users.users."doctor" = {
     isNormalUser = true;
