@@ -16,6 +16,8 @@
     curl
     fastfetch
     tree
+    unzip
+    zip
   ];
 
   home.file = {
