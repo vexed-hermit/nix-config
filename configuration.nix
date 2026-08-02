@@ -1,19 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 let
-  heliumPolicies = {
-    "PasswordManagerEnabled" = false;
-    "SpellcheckEnabled" = true;
-    "SpellcheckLanguage" = [ "en-US" ];
-    "DefaultSearchProviderEnabled" = true;
-    "DefaultSearchProviderSearchURL" = "https://www.google.com/search?q={searchTerms}";
-    "ExtensionInstallForcelist" = [
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
-      "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
-      "hoombieeljmmljlkjmnheibnpciblicm" # Language Reactor
-      "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
-    ];
-  };
+  helium = import ./lib/helium.nix;
 in
 
 {
@@ -108,10 +96,10 @@ in
   ];
 
   environment.etc."chromium/policies/managed/helium-nixos.json".text =
-    builtins.toJSON heliumPolicies;
+    builtins.toJSON helium.policies;
 
   environment.etc."helium/policies/managed/helium-nixos.json".text =
-    builtins.toJSON heliumPolicies;
+    builtins.toJSON helium.policies;
 
   system.stateVersion = "26.05";
 }

@@ -1,5 +1,9 @@
 { config, pkgs, inputs, ... }:
 
+let
+  helium = import ./lib/helium.nix;
+in
+
 {
   imports = [
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
@@ -117,12 +121,7 @@
 
   programs.helium = {
     enable = true;
-
-    flags = [
-      "--ozone-platform-hint=auto"
-      "--enable-features=TouchpadOverscrollHistoryNavigation"
-      "--start-maximized"
-    ];
+    flags = helium.flags;
   };
 
   services.playerctld.enable = true;
