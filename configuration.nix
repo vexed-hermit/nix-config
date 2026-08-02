@@ -1,8 +1,19 @@
 { config, pkgs, inputs, ... }:
 
 let
-  system = pkgs.stdenv.hostPlatform.system;
-  helium = inputs.helium-browser.packages.${system}.default;
+  heliumPolicies = {
+    "PasswordManagerEnabled" = false;
+    "SpellcheckEnabled" = true;
+    "SpellcheckLanguage" = [ "en-US" ];
+    "DefaultSearchProviderEnabled" = true;
+    "DefaultSearchProviderSearchURL" = "https://www.google.com/search?q={searchTerms}";
+    "ExtensionInstallForcelist" = [
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
+      "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
+      "hoombieeljmmljlkjmnheibnpciblicm" # Language Reactor
+      "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
+    ];
+  };
 in
 
 {
@@ -15,8 +26,6 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  #networking.hostName = "nixos";
 
   networking.networkmanager = {
     enable = true;
@@ -93,11 +102,16 @@ in
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    helium
     vim
     zed-editor
     ghostty
   ];
+
+  environment.etc."chromium/policies/managed/helium-nixos.json".text =
+    builtins.toJSON heliumPolicies;
+
+  environment.etc."helium/policies/managed/helium-nixos.json".text =
+    builtins.toJSON heliumPolicies;
 
   system.stateVersion = "26.05";
 }
