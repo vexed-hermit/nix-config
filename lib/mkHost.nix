@@ -6,7 +6,7 @@ nixpkgs.lib.nixosSystem {
   inherit system;
   specialArgs = { inherit inputs hostname; };
   modules = [
-    ../configuration.nix
+    ../hosts/${hostname}
     home-manager.nixosModules.home-manager
     {
       networking.hostName = hostname;
@@ -16,7 +16,7 @@ nixpkgs.lib.nixosSystem {
         useUserPackages = true;
         backupFileExtension = "backup";
         extraSpecialArgs = { inherit inputs; };
-        users.${username} = import ../home.nix;
+        users.${username} = import ../users/${username};
       };
     }
   ] ++ extraModules;
