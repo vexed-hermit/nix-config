@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, hostname, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  hostname,
+  ...
+}:
 
 {
   imports = [
@@ -11,7 +17,10 @@
   users.users."doctor" = {
     isNormalUser = true;
     description = "Doctor";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
     ];

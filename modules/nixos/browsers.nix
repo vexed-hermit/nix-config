@@ -11,6 +11,5 @@ in
   environment.etc."chromium/policies/managed/helium-nixos.json".text =
     builtins.toJSON helium.policies;
 
-  environment.etc."helium/policies/managed/helium-nixos.json".text =
-    builtins.toJSON helium.policies;
+  environment.etc."helium/policies/managed/helium-nixos.json".text = builtins.toJSON helium.policies;
 }

@@ -14,26 +14,29 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    helium-browser,
-    ...
-  }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      helium-browser,
+      ...
+    }@inputs:
 
-  let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
 
-    mkHost = import ./lib/mkHost.nix {
-      inherit nixpkgs home-manager inputs;
+      mkHost = import ./lib/mkHost.nix {
+        inherit nixpkgs home-manager inputs;
+      };
+    in
+
+    {
+      nixosConfigurations = {
+        nixos = mkHost { hostname = "nixos"; };
+      };
+
+      formatter.${system} = pkgs.nixfmt-rfc-style;
     };
-  in
-
-  {
-    nixosConfigurations = {
-      nixos = mkHost { hostname = "nixos"; };
-    };
-  };
 }

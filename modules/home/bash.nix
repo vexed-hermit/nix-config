@@ -5,7 +5,10 @@
     enable = true;
     enableCompletion = true;
 
-    historyControl = [ "ignoredups" "ignorespace" ];
+    historyControl = [
+      "ignoredups"
+      "ignorespace"
+    ];
     historySize = 10000;
     historyFileSize = 20000;
 
@@ -46,7 +49,7 @@
     '';
 
     bashrcExtra = ''
-     # anything you want in every bash invocation
+      # anything you want in every bash invocation
     '';
   };
 }

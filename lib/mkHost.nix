@@ -1,6 +1,15 @@
-{ nixpkgs, home-manager, inputs, username ? "doctor" }:
+{
+  nixpkgs,
+  home-manager,
+  inputs,
+  username ? "doctor",
+}:
 
-{ hostname, system ? "x86_64-linux", extraModules ? [ ] }:
+{
+  hostname,
+  system ? "x86_64-linux",
+  extraModules ? [ ],
+}:
 
 nixpkgs.lib.nixosSystem {
   inherit system;
@@ -19,5 +28,6 @@ nixpkgs.lib.nixosSystem {
         users.${username} = import ../users/${username};
       };
     }
-  ] ++ extraModules;
+  ]
+  ++ extraModules;
 }
