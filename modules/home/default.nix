@@ -9,6 +9,7 @@
     ./browser.nix
     ./flatpak.nix
     ./services.nix
+    ./yt-dlp.nix
   ];
 
   programs.home-manager.enable = true;
