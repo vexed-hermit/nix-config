@@ -18,7 +18,14 @@
   };
 
   programs.bat.enable = true;
-  programs.eza.enable = true; # modern ls replacement
+
+  programs.eza = {
+    enable = true;
+    enableBashIntegration = false;
+    git = true;
+    icons = "auto";
+  };
+
   programs.ripgrep-all.enable = true;
 
   programs.mcfly = {
