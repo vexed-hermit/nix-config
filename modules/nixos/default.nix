@@ -15,5 +15,6 @@
     ./flatpak.nix
     ./syncthing.nix
     ./ssh.nix
+    ./sops-nix.nix
   ];
 }
