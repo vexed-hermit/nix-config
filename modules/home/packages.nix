@@ -15,6 +15,6 @@
     EDITOR = "zeditor --wait";
     VISUAL = "zeditor --wait";
     EZA_ICON_SPACING = "2";
-    LESS = "-R --use-color -Dd+r$Du+b$";
+    #LESS = "-R --use-color -Dd+r$Du+b$";
   };
 }
