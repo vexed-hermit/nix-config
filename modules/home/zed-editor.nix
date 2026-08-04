@@ -23,10 +23,10 @@
     # already bundled). Anything referenced by userSettings' language
     # servers/formatters below should live here so it's on PATH for Zed.
     extraPackages = with pkgs; [
-      nixd # Nix LSP
+      nixd
       nixpkgs-fmt
-      nodePackages.prettier
-      nodePackages.typescript-language-server
+      prettier
+      typescript-language-server
       rust-analyzer
       gopls
       ripgrep
