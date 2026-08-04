@@ -10,6 +10,7 @@
     ./flatpak.nix
     ./services.nix
     ./yt-dlp.nix
+    ./zed-editor.nix
   ];
 
   programs.home-manager.enable = true;
