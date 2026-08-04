@@ -43,6 +43,9 @@
     initExtra = ''
       # Custom prompt
       PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
+
+      # Better less
+      export LESS='-R --use-color -Dd+r$Du+b$'
     '';
 
     profileExtra = ''
