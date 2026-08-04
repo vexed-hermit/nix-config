@@ -10,12 +10,16 @@
 
     settings = {
       devices = {
-        # laptop = { id = "DEVICE-ID-HERE"; };
+        phone = {
+          id = "6XTPSIU-NQALQUC-VVSALKR-N7CJ647-VHMAG5E-CGTI3KS-PZ45737-4HYSHQR";
+        };
       };
+
       folders = {
         "Documents" = {
+          id = "documents";
           path = "/home/doctor/Documents";
-          devices = [ ]; # e.g. [ "laptop" ]
+          devices = [ "phone" ]; # e.g. [ "laptop" ]
         };
       };
     };
