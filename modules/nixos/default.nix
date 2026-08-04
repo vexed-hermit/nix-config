@@ -13,5 +13,6 @@
     ./programs.nix
     ./browsers.nix
     ./flatpak.nix
+    ./syncthing.nix
   ];
 }
