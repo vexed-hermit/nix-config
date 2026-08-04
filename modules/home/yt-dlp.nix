@@ -2,8 +2,8 @@
 {
   # ---- Dependencies ----
   home.packages = with pkgs; [
-    ffmpeg-full   # audio extraction, thumbnail/metadata embedding
-    aria2         # multi-connection downloader
+    ffmpeg-full # audio extraction, thumbnail/metadata embedding
+    aria2 # multi-connection downloader
     atomicparsley # embeds metadata/thumbnails into m4a/mp4 audio containers
   ];
   # ---- yt-dlp ----
@@ -12,8 +12,8 @@
     settings = {
       # --- Audio-only extraction (default behavior) ---
       extract-audio = true;
-      audio-format = "mp3";       # or "best" to keep source codec (opus/m4a) without lossy re-encode
-      audio-quality = "0";        # best quality (VBR ~245kbps for mp3)
+      audio-format = "mp3"; # or "best" to keep source codec (opus/m4a) without lossy re-encode
+      audio-quality = "0"; # best quality (VBR ~245kbps for mp3)
       format = "bestaudio/best";
       # --- Output & organization ---
       # NOTE: no literal space before "[%(id)s]" — yt-dlp's config file parser
