@@ -16,5 +16,6 @@
     ./syncthing.nix
     ./ssh.nix
     ./sops-nix.nix
+    ./stylix.nix
   ];
 }
