@@ -8,8 +8,6 @@
     flake = "/home/doctor/Projects/nix-config";
   };
 
-  programs.kdeconnect.enable = true;
-
   programs.neovim.enable = true;
 
   environment.systemPackages = with pkgs; [
