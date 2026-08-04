@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   programs.zed-editor = {
@@ -125,7 +125,6 @@
         context = "Editor";
         bindings = {
           "cmd-d" = "editor::SelectNext";
-          "cmd-shift-d" = "editor::DuplicateLine";
         };
       }
     ];
