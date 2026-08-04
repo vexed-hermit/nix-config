@@ -16,6 +16,7 @@ nixpkgs.lib.nixosSystem {
   specialArgs = { inherit inputs hostname; };
   modules = [
     ../hosts/${hostname}
+    ../users/${username}/system.nix
     home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
     {
@@ -26,7 +27,7 @@ nixpkgs.lib.nixosSystem {
         useUserPackages = true;
         backupFileExtension = "backup";
         extraSpecialArgs = { inherit inputs; };
-        users.${username} = import ../users/${username};
+        users.${username} = import ../users/${username}/home.nix;
       };
     }
   ]

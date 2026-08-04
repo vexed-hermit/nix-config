@@ -14,19 +14,6 @@
 
   time.timeZone = "Asia/Kathmandu";
 
-  users.users."doctor" = {
-    isNormalUser = true;
-    description = "Doctor";
-    hashedPasswordFile = config.sops.secrets."user-doctor-password-hash".path;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    packages = with pkgs; [
-      kdePackages.kate
-    ];
-  };
-
   # Leave this as the release you first installed with; see NixOS docs on stateVersion.
   system.stateVersion = "26.05";
 }
