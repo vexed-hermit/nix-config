@@ -35,11 +35,11 @@
 
     userSettings = {
       # --- Appearance ---
-      theme = {
-        mode = "system";
-        light = "Catppuccin Latte";
-        dark = "Catppuccin Mocha";
-      };
+      # theme = {
+      #   mode = "system";
+      #   light = "Catppuccin Latte";
+      #   dark = "Catppuccin Mocha";
+      # };
       # buffer_font_family = "JetBrains Mono";
       # buffer_font_size = 14;
       # ui_font_size = 15;
