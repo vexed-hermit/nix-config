@@ -14,5 +14,6 @@
     ./browsers.nix
     ./flatpak.nix
     ./syncthing.nix
+    ./ssh.nix
   ];
 }

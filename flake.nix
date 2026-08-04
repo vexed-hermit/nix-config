@@ -12,6 +12,11 @@
     helium-browser.url = "github:oxcl/nix-flake-helium-browser";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
+    sops-nix = {
+      sops-nix.url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
