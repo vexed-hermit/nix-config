@@ -3,6 +3,7 @@
 {
   programs.zed-editor = {
     enable = true;
+    defaultEditor = true;
 
     # Lets Home Manager symlink Zed's config/keymap/settings into the right
     # XDG paths instead of you hand-editing ~/.config/zed.

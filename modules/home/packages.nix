@@ -12,8 +12,6 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "zeditor --wait";
-    VISUAL = "zeditor --wait";
     EZA_ICON_SPACING = "2";
   };
 }
