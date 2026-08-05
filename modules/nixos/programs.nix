@@ -10,6 +10,8 @@
 
   programs.neovim.enable = true;
 
+  programs.kdeconnect.enable = true;
+
   environment.systemPackages = with pkgs; [
     vim
     ghostty
