@@ -36,7 +36,7 @@
       {
         plugin = continuum;
         extraConfig = ''
-          set -g @continuum-restore 'on'
+          set -g @continuum-restore 'off'
           set -g @continuum-save-interval '15'
         '';
       }
