@@ -46,11 +46,6 @@
 
       # Better less
       export LESS='-R --use-color -Dd+r$Du+b$'
-
-      # Launch tmux automatically on interactive shell startup
-      if [[ $- == *i* ]] && [ -z "$TMUX" ]; then
-        exec tmux new-session -A -s main
-      fi
     '';
 
     profileExtra = ''
