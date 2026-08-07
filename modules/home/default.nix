@@ -11,6 +11,7 @@
     ./services.nix
     ./yt-dlp.nix
     ./zed-editor.nix
+    ./tmux.nix
   ];
 
   programs.home-manager.enable = true;
