@@ -19,7 +19,7 @@
       # NOTE: no literal space before "[%(id)s]" — yt-dlp's config file parser
       # splits unquoted values on whitespace, so a raw space here breaks the
       # template into a separate bogus "URL" argument. Underscore used instead.
-      output = "~/Music/%(uploader)s/%(title)s_[%(id)s].%(ext)s";
+      output = "~/Music/%(title)s_[%(id)s]_%(uploader)s.%(ext)s";
       restrict-filenames = true;
       trim-filenames = 150;
       # --- Subtitles (sidecar files, since audio can't embed them) ---
