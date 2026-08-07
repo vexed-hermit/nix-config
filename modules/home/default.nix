@@ -12,6 +12,7 @@
     ./yt-dlp.nix
     ./zed-editor.nix
     ./tmux.nix
+    ./ghostty.nix
   ];
 
   programs.home-manager.enable = true;
