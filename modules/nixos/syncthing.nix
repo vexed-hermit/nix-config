@@ -21,6 +21,12 @@
           path = "/home/doctor/Documents";
           devices = [ "phone" ]; # e.g. [ "laptop" ]
         };
+
+        "Music" = {
+          id = "music";
+          path = "/home/doctor/Music";
+          devices = [ "phone" ];
+        };
       };
     };
   };
