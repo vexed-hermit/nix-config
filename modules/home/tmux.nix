@@ -15,16 +15,6 @@
       # Seamless navigation between Vim splits and Tmux panes (<C-h/j/k/l>)
       vim-tmux-navigator
 
-      # Theme (Catppuccin)
-      {
-        plugin = catppuccin;
-        extraConfig = ''
-          set -g @catppuccin_flavor 'mocha'
-          set -g @catppuccin_window_status_style 'rounded'
-          set -g @catppuccin_status_background 'default'
-        '';
-      }
-
       # Session state preservation across system reboots
       {
         plugin = resurrect;
