@@ -13,6 +13,7 @@
     ./zed-editor.nix
     ./tmux.nix
     ./ghostty.nix
+    ./okular.nix
   ];
 
   programs.home-manager.enable = true;
