@@ -15,6 +15,12 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     helium-browser.url = "github:oxcl/nix-flake-helium-browser";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";

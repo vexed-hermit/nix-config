@@ -14,6 +14,7 @@
     ./tmux.nix
     ./ghostty.nix
     ./okular.nix
+    ./zen.nix
   ];
 
   programs.home-manager.enable = true;
