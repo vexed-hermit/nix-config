@@ -48,6 +48,11 @@
           url = "https://reddit.com";
           position = 400;
         };
+        "Comick" = {
+          id = "7991390c-e4c6-464b-8463-b72a64eb392e";
+          url = "https://comick.io";
+          position = 500;
+        };
       };
     };
   };
