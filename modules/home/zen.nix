@@ -6,7 +6,7 @@
 
   programs.zen-browser = {
     enable = true;
-    setDefaultBrowser = true;
+    setAsDefaultBrowser = true;
 
     profiles.default.presets.betterfox.enable = true;
   };
