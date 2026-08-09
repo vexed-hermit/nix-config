@@ -5,7 +5,6 @@
     "--ozone-platform-hint=auto"
     "--enable-features=TouchpadOverscrollHistoryNavigation"
     "--start-maximized"
-    "--use-angle=vulkan"
   ];
 
   # Chrome Enterprise policies — written to /etc by configuration.nix.
