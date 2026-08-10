@@ -16,7 +16,6 @@
       "css"
       "sql"
       "git-firefly" # git blame/lens style extension; drop if you don't want it
-      "catppuccin"
     ];
 
     # Extra CLI tools Zed shells out to (formatters, linters, LSPs not
