@@ -23,7 +23,7 @@
 
     helium-browser.url = "github:oxcl/nix-flake-helium-browser";
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
