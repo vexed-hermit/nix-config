@@ -29,9 +29,10 @@ nixpkgs.lib.nixosSystem {
         useUserPackages = true;
         backupFileExtension = "backup";
         extraSpecialArgs = { inherit inputs; };
-        users.${username} = import ../users/${username}/home.nix;
+        users = nixpkgs.lib.genAttrs users (user: import ../users/${user}/home.nix);
       };
     }
   ]
+  ++ (map (user: ../users/${user}/system.nix) users)
   ++ extraModules;
 }
