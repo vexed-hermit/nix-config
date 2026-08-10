@@ -13,6 +13,14 @@
   home.homeDirectory = "/home/doctor";
   home.stateVersion = "26.05";
 
+  custom.gitIdentity.enable = true;
+  custom.heliumBrowser.enable = true;
+  custom.zenBrowser.enable = true;
+  custom.kdePlasma.enable = true;
+  custom.zedEditor.enable = true;
+  custom.okular.enable = true;
+  custom.ytDlp.enable = true;
+
   services.flatpak.packages = [
     "com.stremio.Stremio"
   ];

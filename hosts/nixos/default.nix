@@ -9,6 +9,10 @@
     ./stylix.nix
   ];
 
+  custom.desktop.enable = true;   # pulls in bluetooth, printing, flatpak, browser policies, theming via their defaults
+  custom.syncthing.enable = true;
+  hostSettings.primaryUser = "doctor";
+
   time.timeZone = "Asia/Kathmandu";
 
   # Leave this as the release you first installed with; see NixOS docs on stateVersion.

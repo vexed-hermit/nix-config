@@ -1,36 +1,40 @@
-{ inputs, ... }:
-
+{ lib, config, inputs, ... }:
+let
+  cfg = config.custom.okular;
+in
 {
-  imports = [
-    inputs.plasma-manager.homeModules.plasma-manager
-  ];
+  options.custom.okular.enable = lib.mkEnableOption "Okular PDF viewer config";
 
-  programs.okular = {
-    enable = true;
-    package = null;
+  imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
-    general = {
-      smoothScrolling = true;
-      showScrollbars = true;
-      openFileInTabs = true;
-      viewContinuous = true;
-      viewMode = "Single";
-      zoomMode = "fitWidth";
-      mouseMode = "TextSelect";
-      obeyDrm = true;
-    };
+  config = lib.mkIf cfg.enable {
+    programs.okular = {
+      enable = true;
+      package = null;
 
-    accessibility = {
-      highlightLinks = true;
-      changeColors = {
-        enable = true;
-        mode = "Inverted";
+      general = {
+        smoothScrolling = true;
+        showScrollbars = true;
+        openFileInTabs = true;
+        viewContinuous = true;
+        viewMode = "Single";
+        zoomMode = "fitWidth";
+        mouseMode = "TextSelect";
+        obeyDrm = true;
       };
-    };
 
-    performance = {
-      enableTransparencyEffects = true;
-      memoryUsage = "Normal";
+      accessibility = {
+        highlightLinks = true;
+        changeColors = {
+          enable = true;
+          mode = "Inverted";
+        };
+      };
+
+      performance = {
+        enableTransparencyEffects = true;
+        memoryUsage = "Normal";
+      };
     };
   };
 }

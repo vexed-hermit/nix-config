@@ -1,31 +1,33 @@
-{ ... }:
+{ lib, config, ... }:
 
+let
+  cfg = config.custom.syncthing;
+  user = config.hostSettings.primaryUser;
+in
 {
-  services.syncthing = {
-    enable = true;
-    user = "doctor";
-    dataDir = "/home/doctor";
-    configDir = "/home/doctor/.config/syncthing";
-    openDefaultPorts = true; # 22000/tcp, 21027/udp
+  options.custom.syncthing.enable = lib.mkEnableOption "Syncthing sync service for the primary user";
 
-    settings = {
-      devices = {
-        phone = {
-          id = "6XTPSIU-NQALQUC-VVSALKR-N7CJ647-VHMAG5E-CGTI3KS-PZ45737-4HYSHQR";
-        };
-      };
+  config = lib.mkIf cfg.enable {
+    services.syncthing = {
+      enable = true;
+      inherit user;
+      dataDir = "/home/${user}";
+      configDir = "/home/${user}/.config/syncthing";
+      openDefaultPorts = true;
 
-      folders = {
-        "Documents" = {
-          id = "documents";
-          path = "/home/doctor/Documents";
-          devices = [ "phone" ]; # e.g. [ "laptop" ]
-        };
-
-        "Music" = {
-          id = "music";
-          path = "/home/doctor/Music";
-          devices = [ "phone" ];
+      settings = {
+        devices.phone.id = "6XTPSIU-NQALQUC-VVSALKR-N7CJ647-VHMAG5E-CGTI3KS-PZ45737-4HYSHQR";
+        folders = {
+          "Documents" = {
+            id = "documents";
+            path = "/home/${user}/Documents";
+            devices = [ "phone" ];
+          };
+          "Music" = {
+            id = "music";
+            path = "/home/${user}/Music";
+            devices = [ "phone" ];
+          };
         };
       };
     };
