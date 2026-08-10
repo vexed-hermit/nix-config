@@ -5,9 +5,7 @@
 
 {
   imports = [
-    inputs.nix-flatpak.homeManagerModules.nix-flatpak
     inputs.helium-browser.homeModules.default
-
     ../../modules/home
   ];
 
