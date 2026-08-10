@@ -41,7 +41,6 @@
       self,
       nixpkgs,
       home-manager,
-      helium-browser,
       ...
     }@inputs:
 
@@ -49,14 +48,16 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
 
-      mkHost = import ./lib/mkHost.nix {
-        inherit nixpkgs home-manager inputs;
-      };
+      myLib = import ./lib { inherit inputs nixpkgs; };
     in
 
     {
       nixosConfigurations = {
-        nixos = mkHost { hostname = "nixos"; };
+        nixos = myLib.mkHost {
+          hostname = "nixos";
+          system = "x86_64-linux";
+          users = [ "doctor" ];
+        };
       };
 
       formatter.${system} = pkgs.nixfmt-rfc-style;
