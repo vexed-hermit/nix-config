@@ -30,6 +30,6 @@ nixpkgs.lib.nixosSystem {
       };
     }
   ]
-  ++ (map (user: ../users/${user}/system.nix) users)
+  ++ (map (user: ../users/${user}.nix) users)
   ++ extraModules;
 }
