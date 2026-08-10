@@ -10,6 +10,7 @@
 
     profiles.default.presets.betterfox.enable = true;
 
+    # Extensions
     policies = let
       mkExtensionSettings = builtins.mapAttrs (_: pluginId: {
         install_url = "https://addons.mozilla.org/firefox/downloads/latest/${pluginId}/latest.xpi";
@@ -23,6 +24,7 @@
       };
     };
 
+    # Pinned tabs
     profiles.default = {
       pinsForce = true;
       pinsForceAction = "remove";
