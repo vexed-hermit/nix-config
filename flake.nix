@@ -56,7 +56,7 @@
         nixos = myLib.mkHost {
           hostname = "nixos";
           system = "x86_64-linux";
-          users = [ "doctor" ];
+          users = [ "doctor" "guest" ];
         };
       };
 
