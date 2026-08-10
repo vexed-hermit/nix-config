@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
-  # neededForUsers = true makes sops-nix decrypt this before the
-  # `users` activation step, since it's referenced via hashedPasswordFile.
   sops.secrets."user-guest-password-hash" = {
     neededForUsers = true;
   };
