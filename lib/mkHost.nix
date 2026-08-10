@@ -1,8 +1,6 @@
 {
   nixpkgs,
-  home-manager,
   inputs,
-  username ? "doctor",
 }:
 
 {
@@ -17,8 +15,7 @@ nixpkgs.lib.nixosSystem {
   specialArgs = { inherit inputs hostname; };
   modules = [
     ../hosts/${hostname}
-    ../users/${username}/system.nix
-    home-manager.nixosModules.home-manager
+    inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
     inputs.stylix.nixosModules.stylix
     {
