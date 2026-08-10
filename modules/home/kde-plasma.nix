@@ -10,7 +10,7 @@ in
     inputs.plasma-manager.homeModules.plasma-manager
   ];
 
-  config = lib.mkIF cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.plasma = {
       enable = true;
 
