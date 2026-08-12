@@ -4,10 +4,8 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
     ../../modules/nixos
-    ./stylix.nix
-  ];
+  ] ++ (import ../../lib/scanPaths.nix { inherit lib; } ./.);
 
   custom.desktop.enable = true;   # pulls in bluetooth, printing, flatpak, browser policies, theming via their defaults
   custom.syncthing.enable = true;
