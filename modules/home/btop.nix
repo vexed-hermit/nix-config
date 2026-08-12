@@ -9,7 +9,6 @@
     settings = {
       # Default: "Default" -> custom theme file expected at
       # ~/.config/btop/themes/current.theme
-      color_theme = "current";
 
       # Default: false -> enables h/j/k/l/g/G navigation
       vim_keys = true;
