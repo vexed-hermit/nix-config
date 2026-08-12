@@ -37,26 +37,31 @@ in
             id = "a77145fa-8d77-40ed-b94b-63b3a2ada907";
             url = "https://youtube.com";
             position = 100;
+            isEssential = true;
           };
           "Gemini" = {
             id = "85f54438-58c2-4524-9adc-4c02b6fd57bd";
             url = "https://gemini.google.com";
             position = 200;
+            isEssential = true;
           };
           "Claude" = {
             id = "ebf62078-852d-481f-8fa3-7eb21f82a351";
             url = "https://claude.ai";
             position = 300;
+            isEssential = true;
           };
           "Reddit" = {
             id = "e49da172-b97c-4f7c-a35c-8df4fa155d1d";
             url = "https://reddit.com";
             position = 400;
+            isEssential = true;
           };
           "Comick" = {
             id = "7991390c-e4c6-464b-8463-b72a64eb392e";
             url = "https://comick.io";
             position = 500;
+            isEssential = true;
           };
         };
       };
