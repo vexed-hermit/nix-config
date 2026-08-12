@@ -1,10 +1,9 @@
-{ inputs, hostname, lib, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.helium-browser.homeModules.default
     ../../modules/home
-  ]
-  ++ lib.optional (hostname == "tardis") ../../hosts/tardis/home-tweaks.nix;
+  ];
 
   home.username = "doctor";
   home.homeDirectory = "/home/doctor";
