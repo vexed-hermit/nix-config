@@ -53,7 +53,7 @@
 
     {
       nixosConfigurations = {
-        nixos = myLib.mkHost {
+        tardis = myLib.mkHost {
           hostname = "tardis";
           system = "x86_64-linux";
           users = [ "doctor" "guest" ];
