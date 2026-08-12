@@ -1,17 +1,23 @@
-{ pkgs, ... }:
+{ lib, pkgs, config, ... }:
 
+let
+  cfg = config.custom.basePackages;
+in
 {
-  home.packages = with pkgs; [
-    btop
-    wl-clipboard
-    curl
-    fastfetch
-    tree
-    unzip
-    zip
-  ];
+  options.custom.basePackages.enable = lib.mkEnableOption "baseline CLI packages for this user";
 
-  home.sessionVariables = {
-    EZA_ICON_SPACING = "2";
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      wl-clipboard
+      curl
+      fastfetch
+      tree
+      unzip
+      zip
+    ];
+
+    home.sessionVariables = {
+      EZA_ICON_SPACING = "2";
+    };
   };
 }

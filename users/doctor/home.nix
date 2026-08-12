@@ -1,13 +1,10 @@
-{
-  inputs,
-  ...
-}:
-
+{ inputs, hostname, lib, ... }:
 {
   imports = [
     inputs.helium-browser.homeModules.default
     ../../modules/home
-  ];
+  ]
+  ++ lib.optional (hostname == "tardis") ../../hosts/tardis/home-tweaks.nix;
 
   home.username = "doctor";
   home.homeDirectory = "/home/doctor";
@@ -20,6 +17,8 @@
   custom.zedEditor.enable = true;
   custom.okular.enable = true;
   custom.ytDlp.enable = true;
+  custom.basePackages.enable = true;
+  custom.mediaServices.enable = true;
 
   services.flatpak.packages = [
     "com.stremio.Stremio"

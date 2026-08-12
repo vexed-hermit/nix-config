@@ -1,8 +1,4 @@
-{
-  nixpkgs,
-  inputs,
-}:
-
+{ nixpkgs, inputs, ... }:
 {
   hostname,
   system ? "x86_64-linux",
@@ -25,7 +21,7 @@ nixpkgs.lib.nixosSystem {
         useGlobalPkgs = true;
         useUserPackages = true;
         backupFileExtension = "backup";
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs hostname; };
         users = nixpkgs.lib.genAttrs users (user: import ../users/${user}/home.nix);
       };
     }
