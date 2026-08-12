@@ -1,10 +1,10 @@
 keys:
   - &admin_doctor age10mckcuh84p2dmw9u8fladh4an283ea8fggl977zg0cqeq7mwxu6qcdvm8g
-  - &host_nixos age1xmhsz26y7j8lva6guh6zpedfae9smvvcr6y7eewyvre55sa3sc0qelnxcu
+  - &host_tardis age1xmhsz26y7j8lva6guh6zpedfae9smvvcr6y7eewyvre55sa3sc0qelnxcu
 
 creation_rules:
-  - path_regex: secrets/nixos\.yaml$
+  - path_regex: secrets/tardis\.yaml$
     key_groups:
       - age:
           - *admin_doctor
-          - *host_nixos
+          - *host_tardis
