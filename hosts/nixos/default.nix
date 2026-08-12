@@ -12,6 +12,7 @@
   custom.desktop.enable = true;   # pulls in bluetooth, printing, flatpak, browser policies, theming via their defaults
   custom.syncthing.enable = true;
   hostSettings.primaryUser = "doctor";
+  hostSettings.desktopEnvironment = "plasma6";
 
   time.timeZone = "Asia/Kathmandu";
 
