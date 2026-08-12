@@ -18,6 +18,7 @@
   custom.ytDlp.enable = true;
   custom.basePackages.enable = true;
   custom.mediaServices.enable = true;
+  custom.discord.enable = true;
 
   services.flatpak.packages = [
     "com.stremio.Stremio"
