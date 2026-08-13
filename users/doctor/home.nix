@@ -20,6 +20,7 @@
   custom.mediaServices.enable = true;
   custom.vesktop.enable = true;
   custom.obsidian.enable = true;
+  custom.syncthing.enable = true;
 
   services.flatpak.packages = [
     "com.stremio.Stremio"
