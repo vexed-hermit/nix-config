@@ -18,7 +18,7 @@
   custom.ytDlp.enable = true;
   custom.basePackages.enable = true;
   custom.mediaServices.enable = true;
-  custom.discord.enable = true;
+  custom.vesktop.enable = true;
   custom.obsidian.enable = true;
 
   services.flatpak.packages = [
