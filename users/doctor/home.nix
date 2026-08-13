@@ -19,6 +19,7 @@
   custom.basePackages.enable = true;
   custom.mediaServices.enable = true;
   custom.discord.enable = true;
+  custom.obsidian.enable = true;
 
   services.flatpak.packages = [
     "com.stremio.Stremio"

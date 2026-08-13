@@ -3,6 +3,10 @@
 let
   cfg = config.custom.syncthing;
   user = config.hostSettings.primaryUser;
+
+  obsidianEnabled =
+    (config.home-manager.users ? ${user})
+    && config.home-manager.users.${user}.custom.obsidian.enable;
 in
 {
   options.custom.syncthing.enable = lib.mkEnableOption "Syncthing sync service for the primary user";
@@ -26,6 +30,12 @@ in
           "Music" = {
             id = "music";
             path = "/home/${user}/Music";
+            devices = [ "phone" ];
+          };
+        } // lib.optionalAttrs obsidianEnabled {
+          "obsidian" = {
+            id = "obsidian";
+            path = "/home/${user}/Documents/Obsidian";
             devices = [ "phone" ];
           };
         };
