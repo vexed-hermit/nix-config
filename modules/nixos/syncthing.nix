@@ -35,7 +35,7 @@ in
         } // lib.optionalAttrs obsidianEnabled {
           "obsidian" = {
             id = "obsidian";
-            path = "/home/${user}/Documents/Obsidian";
+            path = "/home/${user}/Obsidian";
             devices = [ "phone" ];
           };
         };
