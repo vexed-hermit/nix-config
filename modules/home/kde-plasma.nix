@@ -100,6 +100,13 @@ in
           view_actual_size = "Meta+0";
           view_zoom_in = [ "Meta++" "Meta+=" ];
           view_zoom_out = "Meta+-";
+          nightlight = {
+            enable = false;
+            mode = "constant";
+            temperature = {
+              night = 4000;
+            };
+          };
         };
 
         # Power Management
