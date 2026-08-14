@@ -14,7 +14,7 @@ in
     programs.plasma = {
       enable = true;
 
-      kwin.nightlight = {
+      kwin.nightLight = {
         enable = false;
         mode = "constant";
         temperature.night = 4000;
