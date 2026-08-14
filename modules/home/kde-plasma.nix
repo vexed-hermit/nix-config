@@ -14,6 +14,12 @@ in
     programs.plasma = {
       enable = true;
 
+      kwin.nightlight = {
+        enable = false;
+        mode = "constant";
+        temperature.night = 4000;
+      };
+
       shortcuts = {
         # Keyboard Layout Switcher
         "KDE Keyboard Layout Switcher"."Switch to Last-Used Keyboard Layout" = "Meta+Alt+L";
@@ -100,13 +106,7 @@ in
           view_actual_size = "Meta+0";
           view_zoom_in = [ "Meta++" "Meta+=" ];
           view_zoom_out = "Meta+-";
-          nightlight = {
-            enable = false;
-            mode = "constant";
-            temperature = {
-              night = 4000;
-            };
-          };
+
         };
 
         # Power Management
