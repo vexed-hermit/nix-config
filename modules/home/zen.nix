@@ -63,6 +63,12 @@ in
             position = 500;
             isEssential = true;
           };
+          "Whatsapp" = {
+            id = "86e2ac39-d846-4b7b-9fc7-a0dde88a23ac";
+            url = "https://web.whatsapp.com";
+            position = 600;
+            isEssential = true;
+          };
         };
       };
     };
