@@ -15,7 +15,7 @@ in
       enable = true;
 
       kwin.nightLight = {
-        enable = false;
+        enable = true;
         mode = "constant";
         temperature.night = 4000;
       };
