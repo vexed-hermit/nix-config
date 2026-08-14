@@ -162,10 +162,6 @@ in
             Number = 2;
             Rows = 1;
           };
-          NightColor = {
-            Active = true;
-            Mode = "Constant";
-          };
           Xwayland.Scale = 1.3;
         };
 
