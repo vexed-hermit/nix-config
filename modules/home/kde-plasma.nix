@@ -15,7 +15,7 @@ in
       enable = true;
 
       kwin.nightLight = {
-        enable = true;
+        enable = false;
         mode = "constant";
         temperature.night = 4000;
       };
@@ -172,7 +172,6 @@ in
         krunnerrc.General.FreeFloating = true;
         kded5rc.Module-device_automounter.autoload = false;
         kwalletrc.Wallet."First Use" = false;
-        plasma-localerc.Formats.LANG = "en_US.UTF-8";
 
         # Kate Text Editor Behavioral Settings
         katerc = {
