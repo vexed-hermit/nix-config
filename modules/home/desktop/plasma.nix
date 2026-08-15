@@ -1,14 +1,11 @@
 { lib, config, inputs, ... }:
-
 let
-  cfg = config.custom.kdePlasma;
+  cfg = config.custom.desktop.plasma;
 in
 {
-  options.custom.kdePlasma.enable = lib.mkEnableOption "KDE Plasma shortcuts and config (incl. this machine's touchpad tweaks)";
+  options.custom.desktop.plasma.enable = lib.mkEnableOption "Plasma desktop session config";
 
-  imports = [
-    inputs.plasma-manager.homeModules.plasma-manager
-  ];
+  imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
   config = lib.mkIf cfg.enable {
     programs.plasma = {
@@ -147,61 +144,11 @@ in
       };
 
       configFile = {
-        # Input Configuration
-        kcminputrc = {
-          "Libinput/1739/52967/SYNA32EB:00 06CB:CEE7 Touchpad" = {
-            ClickMethod = 2;
-            NaturalScroll = true;
-          };
-          Mouse.X11LibInputXAccelProfileFlat = true;
-        };
-
-        # Display & Window Manager
-        kwinrc = {
-          Desktops = {
-            Number = 2;
-            Rows = 1;
-          };
-          Xwayland.Scale = 1.3;
-        };
-
-        # System Defaults
+        kwinrc.Desktops = { Number = 2; Rows = 1; };
         kdeglobals.General.BrowserApplication = "helium.desktop";
-
-        # Utilities & Runner
         krunnerrc.General.FreeFloating = true;
         kded5rc.Module-device_automounter.autoload = false;
         kwalletrc.Wallet."First Use" = false;
-
-        # Kate Text Editor Behavioral Settings
-        katerc = {
-          General = {
-            "Show Full Path in Title" = false;
-            "Show Menu Bar" = true;
-            "Show Status Bar" = true;
-            "Show Tab Bar" = true;
-            "Show Url Nav Bar" = true;
-          };
-          "KTextEditor Renderer" = {
-            "Animate Bracket Matching" = false;
-            "Auto Color Theme Selection" = true;
-            "Line Height Multiplier" = 1;
-            "Show Indentation Lines" = false;
-            "Show Whole Bracket Expression" = false;
-            "Word Wrap Marker" = false;
-          };
-        };
-
-        # File Dialogs & Dolphin
-        dolphinrc."KFileDialog Settings" = {
-          "Places Icons Auto-resize" = false;
-          "Places Icons Static Size" = 22;
-        };
-
-        spectaclerc = {
-          ImageSave.translatedScreenshotsFolder = "Screenshots";
-          VideoSave.translatedScreencastsFolder = "Screencasts";
-        };
       };
     };
   };

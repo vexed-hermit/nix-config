@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, hostMeta, ... }:
 {
   imports = [
     ../../modules/nixos
@@ -6,9 +6,9 @@
 
   custom.desktop.enable = true;   # pulls in bluetooth, printing, flatpak, browser policies, theming via their defaults
   custom.syncthing.enable = true;
-  hostSettings.primaryUser = "doctor";
-  hostSettings.desktopEnvironments = [ "plasma6" "cosmic" ];
-  hostSettings.displayManager = "sddm";
+  hostSettings.primaryUser = hostMeta.primaryUser;
+  hostSettings.desktopEnvironments = hostMeta.desktopEnvironments;
+  hostSettings.displayManager = hostMeta.displayManager;
 
   time.timeZone = "Asia/Kathmandu";
 

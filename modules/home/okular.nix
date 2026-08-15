@@ -1,11 +1,9 @@
-{ lib, config, inputs, ... }:
+{ lib, config, ... }:
 let
   cfg = config.custom.okular;
 in
 {
   options.custom.okular.enable = lib.mkEnableOption "Okular PDF viewer config";
-
-  imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
   config = lib.mkIf cfg.enable {
     programs.okular = {

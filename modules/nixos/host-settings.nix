@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}:
+{ lib, ... }:
 {
   options.hostSettings.primaryUser = lib.mkOption {
     type = lib.types.str;
@@ -9,7 +6,7 @@
   };
 
   options.hostSettings.desktopEnvironments = lib.mkOption {
-    type = lib.types.listOf (lib.types.enum [ "plasma6" "gnome" "cosmic" ]);
+    type = lib.types.listOf (lib.types.enum [ "plasma6" "gnome" "cosmic" "niri" ]);
     default = [ "plasma6" ];
     description = "Desktop session(s) to install on this host. Multiple entries show up as separate session choices at the login screen.";
   };

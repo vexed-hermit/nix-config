@@ -6,9 +6,17 @@
   extraModules ? [ ],
 }:
 
+let
+  hostMeta = import ../hosts/${hostname}/meta.nix;
+  overridePath = user: ../hosts/${hostname}/home-overrides/${user}.nix;
+  userHomeModules = user:
+    [ ../users/${user}/home.nix ]
+    ++ nixpkgs.lib.optional (builtins.pathExists (overridePath user)) (overridePath user);
+in
+
 nixpkgs.lib.nixosSystem {
   inherit system;
-  specialArgs = { inherit inputs hostname; };
+  specialArgs = { inherit inputs hostname hostMeta; };
   modules = [
     ../hosts/${hostname}
     inputs.home-manager.nixosModules.home-manager
@@ -21,8 +29,10 @@ nixpkgs.lib.nixosSystem {
         useGlobalPkgs = true;
         useUserPackages = true;
         backupFileExtension = "backup";
-        extraSpecialArgs = { inherit inputs hostname; };
-        users = nixpkgs.lib.genAttrs users (user: import ../users/${user}/home.nix);
+        extraSpecialArgs = { inherit inputs hostname hostMeta; };
+        users = nixpkgs.lib.genAttrs users (user: {
+          imports = userHomeModules user;
+        });
       };
     }
   ]
