@@ -6,6 +6,7 @@
 
   custom.desktop.enable = true;   # pulls in bluetooth, printing, flatpak, browser policies, theming via their defaults
   custom.syncthing.enable = true;
+  custom.virtualisation.enable = true;
   hostSettings.primaryUser = hostMeta.primaryUser;
   hostSettings.desktopEnvironments = hostMeta.desktopEnvironments;
   hostSettings.displayManager = hostMeta.displayManager;
