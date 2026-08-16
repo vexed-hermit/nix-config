@@ -14,10 +14,6 @@ in
         package = pkgs.qemu_kvm;
         runAsRoot = true;
         swtpm.enable = true;          # virtual TPM, needed for Windows 11 guests
-        ovmf = {
-          enable = true;              # UEFI firmware for guests
-          packages = [ pkgs.OVMFFull.fd ];
-        };
       };
     };
 
