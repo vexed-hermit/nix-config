@@ -27,7 +27,7 @@ in
       spice
       spice-gtk
       spice-protocol
-      win-virtio      # virtio drivers iso, handy for Windows guests
+      virtio-win
     ];
 
     # Let virt-manager find guests without manual URI config
