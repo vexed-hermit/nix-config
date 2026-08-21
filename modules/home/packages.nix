@@ -15,6 +15,7 @@ in
       unzip
       zip
       poppler-utils
+      imagemagick
     ];
 
     home.sessionVariables = {
