@@ -14,6 +14,7 @@ in
       tree
       unzip
       zip
+      poppler-utils
     ];
 
     home.sessionVariables = {
