@@ -12,7 +12,7 @@ in
       settings = {
         init.defaultBranch = "main";
         pull.rebase = true;
-        user.name = "kingro27";
+        user.name = "vexed-hermit";
         user.email = "kumarvasu2006@gmail.com";
       };
     };
