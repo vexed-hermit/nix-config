@@ -14,8 +14,10 @@ in
       # XDG paths instead of you hand-editing ~/.config/zed.
       extensions = [
         "nix"
+        "yaml"
         "toml"
-        "docker"
+        "dockerfile"
+        "justfile"
         "make"
         "html"
         "css"
@@ -35,6 +37,11 @@ in
         gopls
         ripgrep
         fd
+        dockerfile-language-server-nodejs
+        just               # the `just` CLI itself
+        just-lsp           # language server for justfile syntax/completions
+        shellcheck
+        shfmt
       ];
 
       userSettings = {
