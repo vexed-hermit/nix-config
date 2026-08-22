@@ -16,6 +16,7 @@ in
       zip
       poppler-utils
       imagemagick
+      vlc
     ];
 
     home.sessionVariables = {
