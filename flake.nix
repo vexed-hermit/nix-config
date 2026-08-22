@@ -60,6 +60,15 @@
         };
       };
 
+      # Standalone home-manager configs for non-NixOS systems (e.g. Arch).
+      # Activate with: home-manager switch --flake .#doctor@arch
+      homeConfigurations = {
+        "doctor@arch" = myLib.mkHome {
+          user = "doctor";
+          system = "x86_64-linux";
+        };
+      };
+
       formatter.${system} = pkgs.nixfmt-rfc-style;
     };
 }
