@@ -13,9 +13,6 @@
 
   time.timeZone = "Asia/Kathmandu";
 
-  # Workaround for i915 PSR atomic update timing bug on this laptop's Meteor Lake iGPU
-  boot.kernelParams = [ "i915.enable_psr=0" ];
-
   # Leave this as the release you first installed with; see NixOS docs on stateVersion.
   system.stateVersion = "26.05";
 }
