@@ -8,6 +8,9 @@ in
   imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
   config = lib.mkIf cfg.enable {
+    # Stylix only supports the qtct QT theming backend; KDE's own integration
+    # isn't supported yet, so override the auto-detected "kde" platform.
+    stylix.targets.qt.platform = "qtct";
     programs.plasma = {
       enable = true;
 

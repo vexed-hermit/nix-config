@@ -9,6 +9,7 @@ in
   imports = [ inputs.zen-browser.homeModules.twilight ];
 
   config = lib.mkIf cfg.enable {
+    stylix.targets.zen-browser.profileNames = [ "default" ];
     programs.zen-browser = {
       enable = true;
       setAsDefaultBrowser = true;

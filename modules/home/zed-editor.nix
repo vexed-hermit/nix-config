@@ -37,7 +37,7 @@ in
         gopls
         ripgrep
         fd
-        dockerfile-language-server-nodejs
+        dockerfile-language-server
         just               # the `just` CLI itself
         just-lsp           # language server for justfile syntax/completions
         shellcheck
