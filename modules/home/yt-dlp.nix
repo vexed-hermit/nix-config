@@ -28,11 +28,11 @@ in
         output = "~/Music/%(title)s_[%(id)s]_%(uploader)s.%(ext)s";
         restrict-filenames = true;
         trim-filenames = 150;
-        # --- Subtitles (sidecar files, since audio can't embed them) ---
-        write-subs = true;
-        write-auto-subs = true;
-        sub-langs = "en.*";
-        convert-subs = "srt";
+        ### --- Subtitles (sidecar files, since audio can't embed them) ---
+        ##write-subs = true;
+        ##write-auto-subs = true;
+        ##sub-langs = "en.*";
+        ##convert-subs = "srt";
         # --- Metadata & thumbnails (these DO embed into audio) ---
         embed-metadata = true;
         embed-thumbnail = true;
