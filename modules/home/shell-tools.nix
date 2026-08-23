@@ -28,10 +28,4 @@
 
   programs.ripgrep-all.enable = true;
 
-  programs.mcfly = {
-    enable = true;
-    enableBashIntegration = true;
-    fzf.enable = true;
-    keyScheme = "vim";
-  };
 }
