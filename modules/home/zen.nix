@@ -74,7 +74,7 @@ in
         settings = {
           "browser.tabs.unloadOnLowMemory" = true;
           "browser.tabs.min_inactive_duration_before_unload" = 600000; # 10 min, in ms
-          "browser.low_commit_space_threshold_percent" = 100;          # be more aggressive about "low memory"
+          # "browser.low_commit_space_threshold_percent" = 100;          # be more aggressive about "low memory"
         };
       };
     };
