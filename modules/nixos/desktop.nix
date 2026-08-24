@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 let
   cfg = config.custom.desktop;
   des = config.hostSettings.desktopEnvironments;
@@ -11,6 +11,15 @@ in
     {
       services.xserver.enable = true;
       services.xserver.xkb = { layout = "us"; variant = ""; };
+
+      hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
+        extraPackages = with pkgs; [
+          intel-media-driver
+          vpl-gpu-rt
+        ];
+      };
     }
 
     (lib.mkIf (builtins.elem "plasma6" des) { services.desktopManager.plasma6.enable = true; })
