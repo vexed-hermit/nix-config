@@ -20,6 +20,7 @@ in
           vpl-gpu-rt
         ];
       };
+
     }
 
     (lib.mkIf (builtins.elem "plasma6" des) { services.desktopManager.plasma6.enable = true; })

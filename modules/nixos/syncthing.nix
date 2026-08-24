@@ -9,6 +9,10 @@ in
   config = lib.mkIf cfg.enable {
     services.syncthing = {
       openDefaultPorts = true;
+      user = config.hostSettings.primaryUser;
+      group = "users";
+      dataDir = "/home/${config.hostSettings.primaryUser}";
+      configDir = "/home/${config.hostSettings.primaryUser}/.config/syncthing";
     };
   };
 }

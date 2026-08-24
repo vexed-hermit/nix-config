@@ -145,7 +145,7 @@ in
 
       configFile = {
         kwinrc.Desktops = { Number = 2; Rows = 1; };
-        kdeglobals.General.BrowserApplication = "helium.desktop";
+        #kdeglobals.General.BrowserApplication = "helium.desktop";
         krunnerrc.General.FreeFloating = true;
         kded5rc.Module-device_automounter.autoload = false;
         kwalletrc.Wallet."First Use" = false;
