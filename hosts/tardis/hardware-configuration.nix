@@ -25,8 +25,9 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/4b631190-2a02-4ccc-a2eb-e50a0fa542f4";
-    fsType = "btrfs";
+    device = "tmpfs";
+    fsType = "tmpfs";
+    options = [ "defaults" "mode=755" "size=2G" ];
   };
 
   fileSystems."/home" = {
@@ -39,6 +40,16 @@
     device = "/dev/disk/by-uuid/4b631190-2a02-4ccc-a2eb-e50a0fa542f4";
     fsType = "btrfs";
     options = [ "subvol=nix" ];
+  };
+
+  # Real, persistent storage. Everything that needs to survive a reboot
+  # (SSH host keys, machine-id, NetworkManager connections, etc.) lives
+  # here and gets bind-mounted into the ephemeral root at boot.
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-uuid/4b631190-2a02-4ccc-a2eb-e50a0fa542f4";
+    fsType = "btrfs";
+    options = [ "subvol=persist" ];
+    neededForBoot = true; # impermanence needs this mounted before it can bind-mount from it
   };
 
   fileSystems."/boot" = {
