@@ -34,6 +34,7 @@
     device = "/dev/disk/by-uuid/4b631190-2a02-4ccc-a2eb-e50a0fa542f4";
     fsType = "btrfs";
     options = [ "subvol=home" ];
+    neededForBoot = true;
   };
 
   fileSystems."/nix" = {

@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   # Root ("/") is tmpfs and is wiped every boot (see hardware-configuration.nix).
   # Anything listed here is bind-mounted from the real, persistent
@@ -30,11 +30,5 @@
       "/etc/ssh/ssh_host_rsa_key"
       "/etc/ssh/ssh_host_rsa_key.pub"
     ];
-
-    users.${config.hostSettings.primaryUser} = {
-      directories = [
-        ".local/share/libvirt" # per-user libvirt state, if any
-      ];
-    };
   };
 }
