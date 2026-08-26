@@ -72,11 +72,14 @@ in
           };
         };
 
-        ##settings = {
+        settings = {
+          # Fix for typing lag / flicker on page load — known Intel iGPU (iHD driver)
+          # DMA-BUF texture-sharing bug under KWin's Wayland compositor.
+          "widget.dmabuf.force-enabled" = false;
         ##  "browser.tabs.unloadOnLowMemory" = true;
         ##  "browser.tabs.min_inactive_duration_before_unload" = 600000; # 10 min, in ms
         ##  # "browser.low_commit_space_threshold_percent" = 100;          # be more aggressive about "low memory"
-        ##};
+        };
       };
     };
     home.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
