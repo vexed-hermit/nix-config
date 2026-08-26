@@ -1,5 +1,5 @@
 {
   primaryUser = "doctor";
-  desktopEnvironments = [ "plasma6" "cosmic" ];
+  desktopEnvironments = [ "plasma6" ];
   displayManager = "sddm";
 }
