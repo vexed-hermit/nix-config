@@ -23,6 +23,7 @@ nixpkgs.lib.nixosSystem {
     inputs.sops-nix.nixosModules.sops
     inputs.stylix.nixosModules.stylix
     inputs.impermanence.nixosModules.impermanence
+    inputs.disko.nixosModules.disko
     {
       networking.hostName = hostname;
 

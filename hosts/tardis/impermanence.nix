@@ -8,6 +8,10 @@
   # When something breaks after a reboot ("why did X reset?"), it's almost
   # always because X's state lives somewhere not covered below — add the
   # path and rebuild.
+
+  fileSystems."/persist".neededForBoot = true;
+  fileSystems."/home".neededForBoot = true;
+
   environment.persistence."/persist" = {
     hideMounts = true;
 
