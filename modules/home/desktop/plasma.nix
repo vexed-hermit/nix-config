@@ -11,6 +11,26 @@ in
     programs.plasma = {
       enable = true;
 
+      overrideConfig = true;
+      immutableByDefault = true;
+
+      panels = [
+        {
+          location = "top";
+          height = 44;
+          widgets = [
+            "org.kde.plasma.kickoff"
+            "org.kde.plasma.pager"
+            "org.kde.plasma.icontasks"
+            "org.kde.plasma.marginsseparator"
+            {
+              systemTray.items.configs.battery.showPercentage = true;
+            }
+            "org.kde.plasma.digitalclock"
+          ];
+        }
+      ];
+
       kwin.nightLight = {
         enable = true;
         mode = "constant";
@@ -149,6 +169,20 @@ in
         krunnerrc.General.FreeFloating = true;
         kded5rc.Module-device_automounter.autoload = false;
         kwalletrc.Wallet."First Use" = false;
+        # Plasma's own UI language/region settings live in plasma-localerc
+        # and are independent of the system-wide i18n locale set in
+        # modules/nixos/locale.nix. Set the Plasma interface to English,
+        # while keeping day-month-year date formatting (e.g. 27/08/2026)
+        # via en_GB for LC_TIME.
+        "plasma-localerc".Translations.LANGUAGE = "en_US";
+        "plasma-localerc".Formats = {
+          LANG = "en_US.UTF-8";
+          LC_TIME = "en_GB.UTF-8";
+          LC_NUMERIC = "en_US.UTF-8";
+          LC_MONETARY = "en_US.UTF-8";
+          LC_MEASUREMENT = "en_US.UTF-8";
+          LC_COLLATE = "en_US.UTF-8";
+        };
       };
     };
   };
