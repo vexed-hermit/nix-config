@@ -7,11 +7,6 @@
     wifi.powersave = false;
     wifi.macAddress = "stable";
 
-    ##settings."connectivity" = {
-    ##  uri = "http://cp.cloudflare.com/";
-    ##  interval = 300;
-    ##};
-
     ensureProfiles = {
       environmentFiles = [ config.sops.templates."wifi.env".path ];
       profiles = {
