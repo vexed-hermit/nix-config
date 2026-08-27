@@ -23,9 +23,7 @@ in
             "org.kde.plasma.pager"
             "org.kde.plasma.icontasks"
             "org.kde.plasma.marginsseparator"
-            {
-              systemTray.items.configs.battery.showPercentage = true;
-            }
+            "org.kde.plasma.systemTray"
             "org.kde.plasma.digitalclock"
           ];
         }
