@@ -7,14 +7,7 @@
     wifi.powersave = false;
     wifi.macAddress = "stable";
 
-    services.resolved = {
-      enable = true;
-      dnssec = "allow-downgrade";   # "true" would break most captive portals
-      dnsovertls = "opportunistic"; # encrypts when possible, falls back silently otherwise
-      fallbackDns = [ "1.1.1.1" "1.0.0.1" ];
-    };
-
-    networking.networkmanager.settings."connectivity" = {
+    settings."connectivity" = {
       uri = "http://cp.cloudflare.com/";
       interval = 300;
     };
@@ -33,7 +26,7 @@
             ssid = "RAKESH KUMAR THAKUR _5g";
           };
           wifi-security = {
-            key-mgmt = "wpa-psk";   # use "sae" instead if the network is WPA3-only
+            key-mgmt = "wpa-psk";
             psk = "$WIFI_PASSWORD";
           };
           ipv4.method = "auto";
@@ -42,5 +35,19 @@
       };
     };
   };
-  # ...
+
+  services.resolved = {
+    enable = true;
+    dnssec = "allow-downgrade";
+    dnsovertls = "opportunistic";
+    fallbackDns = [ "1.1.1.1" "1.0.0.1" ];
+  };
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 ];
+    allowedUDPPorts = [ ];
+  };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 }
