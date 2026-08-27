@@ -5,7 +5,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/${config.hostSettings.primaryUser}/Projects/nix-config";
+    flake = "/home/${config.hostSettings.primaryUser}/nix-config";
   };
 
   programs.neovim.enable = true;
