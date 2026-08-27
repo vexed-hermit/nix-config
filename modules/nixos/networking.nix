@@ -1,11 +1,11 @@
 { config, ... }:
 {
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+
   networking.networkmanager = {
     enable = true;
     wifi.powersave = false;
     wifi.macAddress = "stable";
-
-    networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
     services.resolved = {
       enable = true;
