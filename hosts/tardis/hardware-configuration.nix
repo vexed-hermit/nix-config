@@ -24,47 +24,11 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "tmpfs";
-    fsType = "tmpfs";
-    options = [ "defaults" "mode=755" "size=2G" ];
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/4b631190-2a02-4ccc-a2eb-e50a0fa542f4";
-    fsType = "btrfs";
-    options = [ "subvol=home" ];
-    neededForBoot = true;
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/4b631190-2a02-4ccc-a2eb-e50a0fa542f4";
-    fsType = "btrfs";
-    options = [ "subvol=nix" ];
-  };
-
-  # Real, persistent storage. Everything that needs to survive a reboot
-  # (SSH host keys, machine-id, NetworkManager connections, etc.) lives
-  # here and gets bind-mounted into the ephemeral root at boot.
-  fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/4b631190-2a02-4ccc-a2eb-e50a0fa542f4";
-    fsType = "btrfs";
-    options = [ "subvol=persist" ];
-    neededForBoot = true; # impermanence needs this mounted before it can bind-mount from it
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/55E1-06F6";
-    fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-    ];
-  };
-
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/4bdbcadf-639a-493a-a64d-29486c6d6115"; }
-  ];
+  # fileSystems.* and swapDevices used to be declared here (tmpfs root,
+  # btrfs home/nix/persist subvolumes, vfat boot, swap). They're no longer
+  # needed: disko.nix now owns partitioning/formatting/mounting for this
+  # host and generates all of that itself, including the tmpfs root that
+  # impermanence relies on. See hosts/tardis/disko.nix.
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.npu.enable = true;
