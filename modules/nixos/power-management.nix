@@ -39,7 +39,7 @@ in
         CPU_MAX_PERF_ON_BAT = 60;
 
         # --- Platform / Intel-specific ---
-        PLATFORM_PROFILE_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_AC = "balanced";
         PLATFORM_PROFILE_ON_BAT = "low-power";
 
         # --- PCIe Active State Power Management ---
