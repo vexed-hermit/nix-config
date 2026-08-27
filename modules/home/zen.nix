@@ -82,6 +82,6 @@ in
         };
       };
     };
-    home.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
+    # home.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
   };
 }
