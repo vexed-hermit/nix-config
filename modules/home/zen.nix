@@ -84,6 +84,8 @@ in
         "zen.tabs.vertical.right-side" = true;
         # Enable compact mode (auto-hiding sidebar/toolbar).
         "zen.view.compact" = true;
+        # Always ask where to save downloaded files.
+        "browser.download.useDownloadDir" = false;
         };
       };
     };
