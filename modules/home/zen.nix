@@ -27,6 +27,7 @@ in
             "{446900e4-71c2-419f-a6a7-df9c091e268b}" = "bitwarden-password-manager";
             "uBlock0@raymondhill.net" = "ublock-origin";
             "sponsorBlocker@ajay.app" = "sponsorblock";
+            "firefox@tampermonkey.net" = "tampermonkey";
           };
         };
 
