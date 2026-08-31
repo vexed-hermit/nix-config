@@ -35,6 +35,14 @@ in
         temperature.night = 4000;
       };
 
+      hotkeys.commands = {
+        "launch-ghostty" = {
+          name = "Launch Ghostty";
+          key = "Meta+Return";
+          command = "ghostty";
+        };
+      };
+
       shortcuts = {
         # Keyboard Layout Switcher
         "KDE Keyboard Layout Switcher"."Switch to Last-Used Keyboard Layout" = "Meta+Alt+L";
