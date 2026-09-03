@@ -86,21 +86,11 @@ in
         };
 
         settings = {
-          # Fix for typing lag / flicker on page load — known Intel iGPU (iHD driver)
-          # DMA-BUF texture-sharing bug under KWin's Wayland compositor.
-          # "widget.dmabuf.force-enabled" = false;
-        ##  "browser.tabs.unloadOnLowMemory" = true;
-        ##  "browser.tabs.min_inactive_duration_before_unload" = 600000; # 10 min, in ms
-        ##  # "browser.low_commit_space_threshold_percent" = 100;          # be more aggressive about "low memory"
-        # Move the vertical tab sidebar to the right side of the window.
         "zen.tabs.vertical.right-side" = true;
-        # Enable compact mode (auto-hiding sidebar/toolbar).
         "zen.view.compact" = true;
-        # Always ask where to save downloaded files.
         "browser.download.useDownloadDir" = false;
         };
       };
     };
-    # home.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
   };
 }
