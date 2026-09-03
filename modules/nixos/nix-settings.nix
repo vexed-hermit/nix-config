@@ -22,6 +22,7 @@
     xorg.libXcursor
     xorg.libXi
     xorg.libXext
+    xorg.libXtst
 
     # Wayland stack
     wayland
