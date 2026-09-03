@@ -32,8 +32,7 @@ in
         };
 
       profiles.default = {
-        pinsForce = true;
-        pinsForceAction = "remove";
+        pinsForce = false;
         pins = {
           "YouTube" = {
             id = "a77145fa-8d77-40ed-b94b-63b3a2ada907";
