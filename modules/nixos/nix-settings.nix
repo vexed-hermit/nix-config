@@ -16,13 +16,13 @@
     libGL
 
     # X11 stack
-    xorg.libX11
-    xorg.libXrandr
-    xorg.libXinerama
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXext
-    xorg.libXtst
+    libX11
+    libXrandr
+    libXinerama
+    libXcursor
+    libXi
+    libXext
+    libXtst
 
     # Wayland stack
     wayland
