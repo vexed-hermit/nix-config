@@ -13,7 +13,19 @@
     zlib
     openssl
     glib
-    # add more as you hit "missing library" errors
+    libGL
+
+    # X11 stack
+    xorg.libX11
+    xorg.libXrandr
+    xorg.libXinerama
+    xorg.libXcursor
+    xorg.libXi
+    xorg.libXext
+
+    # Wayland stack
+    wayland
+    libxkbcommon
   ];
 
   nixpkgs.config.allowUnfree = true;
