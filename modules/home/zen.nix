@@ -76,10 +76,17 @@ in
             editedTitle = true;
             position = 700;
             folderIcon = "chrome://browser/skin/zen-icons/selectable/eye.svg";
-            pins."NixOS Packages" = {
-              id = "f8dd784e-11d7-430a-8f57-7b05ecdb4c77";
-              url = "https://search.nixos.org/packages";
-              position = 701;
+            pins = {
+              "NixOS Packages" = {
+                id = "f8dd784e-11d7-430a-8f57-7b05ecdb4c77";
+                url = "https://search.nixos.org/packages";
+                position = 701;
+              };
+              "KU" = {
+                id = "f8dd784e-11d7-430b-8f97-7b05ecdb4d77";
+                url = "https://ku.edu.np";
+                position = 702;
+              };
             };
           };
         };
