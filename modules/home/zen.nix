@@ -75,12 +75,12 @@ in
             id = "d85a9026-1458-4db6-b115-346746bcc692";
             isFolderCollapsed = false;
             editedTitle = true;
-            position = 200;
+            position = 700;
             folderIcon = "chrome://browser/skin/zen-icons/selectable/eye.svg";
             pins."NixOS Packages" = {
               id = "f8dd784e-11d7-430a-8f57-7b05ecdb4c77";
               url = "https://search.nixos.org/packages";
-              position = 201;
+              position = 701;
             };
           };
         };
