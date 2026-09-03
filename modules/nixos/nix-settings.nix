@@ -27,6 +27,9 @@
     # Wayland stack
     wayland
     libxkbcommon
+
+    alsa-lib
+    libpulseaudio
   ];
 
   nixpkgs.config.allowUnfree = true;
