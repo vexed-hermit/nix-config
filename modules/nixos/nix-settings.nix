@@ -14,6 +14,7 @@
     openssl
     glib
     libGL
+    libGLU
 
     # X11 stack
     libX11
