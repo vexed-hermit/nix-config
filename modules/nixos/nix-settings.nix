@@ -23,6 +23,8 @@
     libXi
     libXext
     libXtst
+    libXmu
+    libXt
 
     # Wayland stack
     wayland
