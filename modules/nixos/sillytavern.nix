@@ -58,6 +58,16 @@ in
         NODE_ENV = "production";
         SILLYTAVERN_HEARTBEATINTERVAL = "30";
         SILLYTAVERN_ENABLESERVERPLUGINS = lib.boolToString cfg.enableServerPlugins;
+        # Podman rewrites the source IP of ALL port-forwarded connections
+        # (loopback or LAN alike) to its bridge gateway, so the default
+        # whitelist ("::1", "127.0.0.1") blocks everything. ST's built-in
+        # whitelistDockerHosts detection targets Docker's 172.17.0.0/16
+        # bridge, not Podman's 10.88.0.0/16, so it doesn't help here.
+        # NOTE: because every port-forwarded client looks identical to ST
+        # (same gateway IP), this whitelist can no longer distinguish
+        # localhost from LAN traffic -- real access control already comes
+        # from `exposeOnLan` (bind address + firewall), not from this list.
+        SILLYTAVERN_WHITELIST = builtins.toJSON [ "::1" "127.0.0.1" "10.88.0.1" ];
       };
       extraOptions = [ "--pull=newer" ];
     };
