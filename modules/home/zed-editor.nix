@@ -69,6 +69,11 @@ in
           shell = "system";
         };
 
+        # --- Docker / containers ---
+        # Enable Zed's container support (docker run, remote containers in the
+        # terminal, container discovery in the UI).
+        container_enabled = true;
+
         # --- Git ---
         git = {
           inline_blame.enabled = true;
