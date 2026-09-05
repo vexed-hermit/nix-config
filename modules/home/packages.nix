@@ -18,7 +18,6 @@ in
       imagemagick
       vlc
       opencode
-      sillytavern
     ];
 
     home.sessionVariables = {
