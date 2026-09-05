@@ -9,6 +9,7 @@
   custom.virtualisation.enable = true;
   custom.podman.enable = true;
   custom.marinara.enable = true;
+  custom.cockpit.enable = true;
   custom.powerManagement.enable = true;   # TLP-based battery tuning; see modules/nixos/power-management.nix
   hostSettings.primaryUser = hostMeta.primaryUser;
   hostSettings.desktopEnvironments = hostMeta.desktopEnvironments;
