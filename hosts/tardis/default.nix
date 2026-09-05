@@ -7,6 +7,7 @@
   custom.desktop.enable = true;   # pulls in bluetooth, printing, flatpak, browser policies, theming via their defaults
   custom.syncthing.enable = true;
   custom.virtualisation.enable = true;
+  custom.podman.enable = true;
   custom.powerManagement.enable = true;   # TLP-based battery tuning; see modules/nixos/power-management.nix
   hostSettings.primaryUser = hostMeta.primaryUser;
   hostSettings.desktopEnvironments = hostMeta.desktopEnvironments;

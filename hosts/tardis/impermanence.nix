@@ -22,6 +22,7 @@
       "/var/lib/bluetooth"
       "/var/lib/NetworkManager" # NM's own state, separate from the connection profiles below
       "/etc/NetworkManager/system-connections" # saved wifi/ethernet connections (wifi-password itself still comes from sops)
+      "/var/lib/containers" # podman images/volumes/state — without this, every pull happens again after reboot
       "/var/lib/libvirt" # VM definitions/disks metadata if you keep VMs on this host
       "/var/lib/flatpak"
       "/var/lib/syncthing" # harmless if unused since syncthing's real data/config dir is under /home
