@@ -11,6 +11,7 @@
   custom.marinara.enable = true;
   custom.sillytavern.enable = true;
   custom.cockpit.enable = true;
+  custom.wireshark.enable = true;
   custom.powerManagement.enable = true;   # TLP-based battery tuning; see modules/nixos/power-management.nix
   hostSettings.primaryUser = hostMeta.primaryUser;
   hostSettings.desktopEnvironments = hostMeta.desktopEnvironments;
