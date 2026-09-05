@@ -17,6 +17,7 @@ in
         "yaml"
         "toml"
         "dockerfile"
+        "docker-compose"
         "justfile"
         "make"
         "html"
