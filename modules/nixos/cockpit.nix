@@ -12,7 +12,6 @@ in
       port = 9090;
       settings = {
         WebService = {
-          AllowUnencrypted = false;
         };
       };
     };
