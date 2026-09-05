@@ -51,27 +51,31 @@ in
         "${if cfg.exposeOnLan then "0.0.0.0" else "127.0.0.1"}:${toString cfg.port}:7860"
       ];
       # Named volume; /var/lib/containers is already in the impermanence
-      # persistence list, so ix into modulthis survives reboots.
+      # persistence list, so this survives reboots.
       volumes = [ "marinara-data:/app/data" ];
-      environmentFiles = lib.mkIf cfg.exposeOnLan [
-        config.sops.templates."marinara.env".path
-      ];
+      # Always wired in, not just when exposeOnLan: podman NAT means the
+      # container sees the bridge gateway address, not literally 127.0.0.1,
+      # as the source of "local" requests -- so Marinara's loopback check
+      # fails even for plain http://127.0.0.1:7860 access from this host.
+      # ADMIN_SECRET is the documented fallback for that case. Paste the
+      # same value into Settings -> Advanced -> Admin Access in the app.
+      environmentFiles = [ config.sops.templates."marinara.env".path ];
       extraOptions = [ "--pull=newer" ];
     };
 
     networking.firewall.allowedTCPPorts = lib.mkIf cfg.exposeOnLan [ cfg.port ];
 
-    sops.secrets = lib.mkIf cfg.exposeOnLan {
-      "marinara-basic-auth-pass" = { };
+    sops.secrets = {
       "marinara-admin-secret" = { };
+    } // lib.optionalAttrs cfg.exposeOnLan {
+      "marinara-basic-auth-pass" = { };
     };
 
-    sops.templates."marinara.env" = lib.mkIf cfg.exposeOnLan {
-      content = ''
-        BASIC_AUTH_USER=${cfg.basicAuthUser}
-        BASIC_AUTH_PASS=${config.sops.placeholder."marinara-basic-auth-pass"}
-        ADMIN_SECRET=${config.sops.placeholder."marinara-admin-secret"}
-      '';
-    };
+    sops.templates."marinara.env".content = ''
+      ADMIN_SECRET=${config.sops.placeholder."marinara-admin-secret"}
+    '' + lib.optionalString cfg.exposeOnLan ''
+      BASIC_AUTH_USER=${cfg.basicAuthUser}
+      BASIC_AUTH_PASS=${config.sops.placeholder."marinara-basic-auth-pass"}
+    '';
   };
 }
