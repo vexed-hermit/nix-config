@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }: # Added 'pkgs' here in case you want to explicitly define the package
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: # Added 'pkgs' here in case you want to explicitly define the package
 
 let
   cfg = config.custom.syncthing;
@@ -24,10 +29,9 @@ in
         };
 
         folders = {
-          "Documents" = {
-            id = "documents";
-            # Fixed the path variable
-            path = "${config.home.homeDirectory}/Documents";
+          "Sillytavern" = {
+            id = "sillytavern";
+            path = "${config.home.homeDirectory}/Sillytavern";
             devices = [ "phone" ];
           };
           "Music" = {
@@ -35,7 +39,8 @@ in
             path = "${config.home.homeDirectory}/Music";
             devices = [ "phone" ];
           };
-        } // lib.optionalAttrs obsidianEnabled {
+        }
+        // lib.optionalAttrs obsidianEnabled {
           "obsidian" = {
             id = "obsidian";
             path = "${config.home.homeDirectory}/Obsidian";
