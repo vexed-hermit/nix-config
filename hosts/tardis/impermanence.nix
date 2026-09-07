@@ -26,6 +26,7 @@
       "/var/lib/libvirt" # VM definitions/disks metadata if you keep VMs on this host
       "/var/lib/flatpak"
       "/var/lib/syncthing" # harmless if unused since syncthing's real data/config dir is under /home
+      "/var/lib/hermes" # hermes-agent stateDir (HERMES_HOME, sessions, memories, auth.json)
     ];
 
     files = [

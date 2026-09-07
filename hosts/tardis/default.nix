@@ -13,6 +13,7 @@
   custom.cockpit.enable = true;
   custom.wireshark.enable = true;
   custom.powerManagement.enable = true;   # TLP-based battery tuning; see modules/nixos/power-management.nix
+  custom.hermesAgent.enable = true;
   hostSettings.primaryUser = hostMeta.primaryUser;
   hostSettings.desktopEnvironments = hostMeta.desktopEnvironments;
   hostSettings.displayManager = hostMeta.displayManager;
