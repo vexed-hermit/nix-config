@@ -13,6 +13,21 @@ let
   # here is resolved by Hermes at runtime from its own process environment
   # (populated below via environmentFiles), not by Nix — hence the escape.
   apiKeyPlaceholder = "\${NANO_GPT_API_KEY}";
+
+  # Host repos/projects exposed read-write to the agent, mounted under
+  # /workspace/<name> inside the container (rather than at their original
+  # host path) since the container's internal "hermes" user doesn't own
+  # /home/doctor. Extend this list to expose more directories.
+  hostWorkspaceMounts = [
+    { hostPath = "/home/doctor/nix-config"; name = "nix-config"; }
+    { hostPath = "/home/doctor/Projects"; name = "Projects"; }
+    # NB: preserving the exact on-disk capitalization as given
+    # ("SIllytavern") — Linux paths are case-sensitive. Rename here (and
+    # on disk) if that was actually meant to be "SillyTavern".
+    { hostPath = "/home/doctor/Sillytavern"; name = "Sillytavern"; }
+  ];
+
+  workspaceVolumes = map (m: "${m.hostPath}:/workspace/${m.name}") hostWorkspaceMounts;
 in
 {
   options.custom.hermesAgent = {
@@ -78,7 +93,7 @@ in
       # Mirrors upstream's docker-compose.yml, which uses host networking
       # for the gateway (needed for some messaging-platform webhooks).
       extraOptions = [ "--network=host" ];
-      volumes = [ "${dataDir}:/opt/data" ];
+      volumes = [ "${dataDir}:/opt/data" ] ++ workspaceVolumes;
       environment = {
         HERMES_UID = toString cfg.uid;
         HERMES_GID = toString cfg.gid;
