@@ -24,7 +24,6 @@ nixpkgs.lib.nixosSystem {
     inputs.stylix.nixosModules.stylix
     inputs.impermanence.nixosModules.impermanence
     inputs.disko.nixosModules.disko
-    inputs.hermes-agent.nixosModules.default
     {
       networking.hostName = hostname;
 
