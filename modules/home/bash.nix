@@ -38,6 +38,7 @@
       ".." = "cd ..";
       "..." = "cd ../..";
       grep = "grep --color=auto";
+      hermes = "podman exec -it hermes-agent hermes --tui";
     };
 
     initExtra = ''
