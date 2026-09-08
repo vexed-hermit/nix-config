@@ -2,6 +2,8 @@
 
 let
   cfg = config.custom.hermesAgent;
+  # Dynamically resolve your home directory for bind mounts
+  userHome = "/home/${config.hostSettings.primaryUser}";
 in
 {
   options.custom.hermesAgent = {
@@ -47,6 +49,15 @@ in
         # /etc/containers/registries.conf (unlike Docker, Podman on NixOS
         # has no default search registry unless one is configured).
         image = "docker.io/library/ubuntu:24.04";
+
+        # Give the agent read/write access to your requested host directories.
+        # They are mounted at the exact same absolute paths inside the container
+        # so the agent's absolute path generation doesn't get confused.
+        volumes = [
+          "${userHome}/nix-config:${userHome}/nix-config:rw"
+          "${userHome}/Projects:${userHome}/Projects:rw"
+          "${userHome}/Sillytavern:${userHome}/Sillytavern:rw"
+        ];
       };
 
       settings = {
