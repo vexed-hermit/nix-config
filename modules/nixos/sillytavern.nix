@@ -44,7 +44,7 @@ in
 
     virtualisation.oci-containers.containers.sillytavern = {
       image = "ghcr.io/sillytavern/sillytavern:${cfg.imageTag}";
-      autoStart = true;
+      autoStart = false;
       ports = [
         "${if cfg.exposeOnLan then "0.0.0.0" else "127.0.0.1"}:${toString cfg.port}:8000"
       ];
