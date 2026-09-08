@@ -9,7 +9,7 @@ in
 
     model = lib.mkOption {
       type = lib.types.str;
-      default = "z-ai/glm-5.3:thinking";
+      default = "anthropic/claude-opus-4.6";
       description = ''
         Model identifier passed to NanoGPT, e.g. "anthropic/claude-opus-4.6",
         "openai/gpt-5.2", or "google/gemini-3-flash-preview" — see
@@ -43,6 +43,10 @@ in
         enable = true;
         backend = "podman";
         hostUsers = cfg.hostUsers;
+        # Fully-qualified so Podman doesn't need short-name resolution via
+        # /etc/containers/registries.conf (unlike Docker, Podman on NixOS
+        # has no default search registry unless one is configured).
+        image = "docker.io/library/ubuntu:24.04";
       };
 
       settings = {
