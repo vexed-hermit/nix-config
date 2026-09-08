@@ -53,7 +53,7 @@ in
         # Give the agent read/write access to your requested host directories.
         # They are mounted at the exact same absolute paths inside the container
         # so the agent's absolute path generation doesn't get confused.
-        volumes = [
+        extraVolumes = [
           "${userHome}/nix-config:${userHome}/nix-config:rw"
           "${userHome}/Projects:${userHome}/Projects:rw"
           "${userHome}/Sillytavern:${userHome}/Sillytavern:rw"
