@@ -46,7 +46,7 @@ in
 
     virtualisation.oci-containers.containers.marinara = {
       image = "ghcr.io/pasta-devs/marinara-engine:${cfg.imageTag}";
-      autoStart = false;
+      autoStart = true;
       ports = [
         "${if cfg.exposeOnLan then "0.0.0.0" else "127.0.0.1"}:${toString cfg.port}:7860"
       ];
