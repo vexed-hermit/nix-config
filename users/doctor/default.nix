@@ -19,6 +19,7 @@
       "wheel"
       "video"
       "render"
+      "hermes"
     ];
     packages = with pkgs; [
       kdePackages.kate
