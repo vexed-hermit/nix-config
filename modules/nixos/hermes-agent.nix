@@ -57,6 +57,7 @@ in
           "${userHome}/nix-config:${userHome}/nix-config:rw"
           "${userHome}/Projects:${userHome}/Projects:rw"
           "${userHome}/Sillytavern:${userHome}/Sillytavern:rw"
+          "${userHome}/Obsidian:${userHome}/Obsidian:rw"
         ];
       };
 

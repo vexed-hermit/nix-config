@@ -9,11 +9,11 @@ in
       enable = true;
       package = pkgs.obsidian;
       cli.enable = true;
-      vaults."Vault01" = {
+      vaults."Mechanical-Engineering" = {
         enable = true;
         # target defaults to the attribute name, so this line is optional —
         # shown here for clarity.
-        target = "Obsidian/Vault01";
+        target = "Obsidian/Mechanical-Engineering";
       };
     };
   };
