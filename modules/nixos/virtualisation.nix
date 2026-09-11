@@ -20,6 +20,14 @@ in
     # SPICE guest/host clipboard + USB redirection support
     virtualisation.spiceUSBRedirection.enable = true;
 
+    # Avoid a race with systemd-machined during activation: libvirtd
+    # reconciles running guests on startup and calls into machined over
+    # D-Bus, which can win the race against nixos-rebuild re-binding
+    # systemd-machined.socket and cause "Socket service ... already
+    # active, refusing" -> activation exit 4. Ordering libvirtd after
+    # the socket avoids the race.
+    systemd.services.libvirtd.after = [ "systemd-machined.socket" ];
+
     # GUI manager + supporting tools
     environment.systemPackages = with pkgs; [
       virt-manager
