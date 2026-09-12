@@ -23,6 +23,9 @@ in
         "html"
         "css"
         "sql"
+        "python"
+        "pyright"
+        "ruff"
         "git-firefly" # git blame/lens style extension; drop if you don't want it
       ];
 
@@ -32,6 +35,8 @@ in
       extraPackages = with pkgs; [
         nixd
         nixpkgs-fmt
+        ruff                # Python linter + formatter
+        pyright             # Python type-checking language server
         prettier
         typescript-language-server
         rust-analyzer
@@ -101,12 +106,42 @@ in
           Rust = {
             format_on_save = "on";
           };
+          Python = {
+            language_servers = [ "pyright" "ruff" ];
+            formatter = {
+              external = {
+                command = "ruff";
+                arguments = [ "format" "--stdin-filename" "%{buffer_path}" "-" ];
+              };
+            };
+            format_on_save = "on";
+            tab_size = 4;
+          };
         };
 
         lsp = {
           nixd = {
             settings = {
               formatting.command = [ "nixpkgs-fmt" ];
+            };
+          };
+          pyright = {
+            settings = {
+              python = {
+                analysis = {
+                  autoSearchPaths = true;
+                  useLibraryCodeForTypes = true;
+                  diagnosticMode = "openFilesOnly";
+                };
+              };
+            };
+          };
+          ruff = {
+            settings = {
+              lint = {
+                enabled = true;
+                run = "onType";
+              };
             };
           };
         };
