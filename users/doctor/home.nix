@@ -8,7 +8,6 @@
   home.username = "doctor";
   home.homeDirectory = "/home/doctor";
   home.stateVersion = "26.05";
-  home-manager.backupFileExtension = "hm-bak";
 
   custom.gitIdentity.enable = true;
   custom.heliumBrowser.enable = true;
