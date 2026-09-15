@@ -58,6 +58,7 @@ in
           "${userHome}/Projects:${userHome}/Projects:rw"
           "${userHome}/Sillytavern:${userHome}/Sillytavern:rw"
           "${userHome}/Obsidian:${userHome}/Obsidian:rw"
+          "${userHome}/Notes:${userHome}/Notes:rw"
         ];
       };
 
