@@ -210,11 +210,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1789661498,
-        "narHash": "sha256-RtuLS1qZE1meYdP6iGBSijJMHc6YSe+ogllmFZahGGE=",
+        "lastModified": 1789661959,
+        "narHash": "sha256-Td00vaKkzXmlO0wgNBZ9sWrBkBQTX5B68+k6RLNWT7o=",
         "owner": "NousResearch",
         "repo": "hermes-agent",
-        "rev": "5cc81773b2b15d706365eff41312dd4086ae3833",
+        "rev": "64ea66b03d44ead9ffea48161132e5deca5d255a",
         "type": "github"
       },
       "original": {
@@ -384,6 +384,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1789370336,
+        "narHash": "sha256-6RSEDHIWQtesQKWSu5qRai8L2h4KgCgMEfJHstW99G4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c7def046b9a883d46974757852106483d741586f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "npm-lockfile-fix": {
       "inputs": {
         "nixpkgs": [
@@ -520,9 +536,7 @@
     },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1788914643,
