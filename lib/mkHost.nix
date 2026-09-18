@@ -31,7 +31,7 @@ nixpkgs.lib.nixosSystem {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        backupFileExtension = "hm-bak";
+        backupFileExtension = "backup-<date>";
         extraSpecialArgs = { inherit inputs hostname hostMeta; };
         users = nixpkgs.lib.genAttrs users (user: {
           imports = userHomeModules user;
