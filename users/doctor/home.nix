@@ -20,6 +20,7 @@
   custom.vesktop.enable = true;
   custom.obsidian.enable = true;
   custom.syncthing.enable = true;
+  custom.rcloneGdrive.enable = true;
 
   services.flatpak.packages = [
     "com.stremio.Stremio"
