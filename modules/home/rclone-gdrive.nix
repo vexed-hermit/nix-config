@@ -16,19 +16,22 @@ in
     home.packages = [ pkgs.rclone ];
 
     systemd.user.services.rclone-gdrive = {
-      description = "Mount Google Drive via rclone";
-      wantedBy = [ "default.target" ];
-      after = [ "network-online.target" ];
+      Unit = {
+        Description = "Mount Google Drive via rclone";
+      };
 
-      # fusermount wrapper needed for ExecStop and by rclone itself
-      path = [ "/run/wrappers/bin" ];
-
-      serviceConfig = {
-        ExecStartPre = "/run/current-system/sw/bin/mkdir -p %h/GoogleDrive";
+      Service = {
+        Type = "simple";
+        Environment = [ "PATH=/run/wrappers/bin" ]; # so rclone can find fusermount
+        ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/GoogleDrive";
         ExecStart = "${pkgs.rclone}/bin/rclone mount \"gdrive:My Folder/Sub Folder\" %h/GoogleDrive --vfs-cache-mode full";
         ExecStop = "/run/wrappers/bin/fusermount -u %h/GoogleDrive";
         Restart = "on-failure";
         RestartSec = "10s";
+      };
+
+      Install = {
+        WantedBy = [ "default.target" ];
       };
     };
   };
