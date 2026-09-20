@@ -12,6 +12,9 @@ in
   options.custom.rcloneGdrive.enable = lib.mkEnableOption "Google Drive rclone mount at ~/GoogleDrive";
 
   config = lib.mkIf cfg.enable {
+    # rclone CLI comes with the module so the toggle owns the package too
+    home.packages = [ pkgs.rclone ];
+
     systemd.user.services.rclone-gdrive = {
       description = "Mount Google Drive via rclone";
       wantedBy = [ "default.target" ];

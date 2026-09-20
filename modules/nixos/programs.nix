@@ -31,6 +31,5 @@
   environment.systemPackages = with pkgs; [
     vim
     sops
-    rclone
   ];
 }
