@@ -11,7 +11,7 @@ in
 
     model = lib.mkOption {
       type = lib.types.str;
-      default = "z-ai/glm-5.3-flash-uncensored";
+      default = "z-ai/glm-5.3:thinking";
       description = ''
         Model identifier passed to NanoGPT, e.g. "anthropic/claude-opus-4.6",
         "openai/gpt-5.2", or "google/gemini-3-flash-preview" — see
